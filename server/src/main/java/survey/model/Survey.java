@@ -6,10 +6,17 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-// import survey.Gender;
-
 @Document("survey")
 public class Survey {
+  enum Gender {
+    MALE, FEMALE, OTHER
+  }
+  enum BuyPreference {
+    ONLINE, INSTORE, BOTH
+  }
+  
+  //https://stackoverflow.com/questions/13109497/list-of-enum-values-in-java
+  //https://www.javabrahman.com/corejava/the-complete-java-enums-tutorial-with-examples/
  
   @Id
   private String id;
@@ -19,7 +26,7 @@ public class Survey {
   private Gender gender;
   private String shoeSize;
   private List<String> favouriteBrands = new ArrayList<String>();
-  private String buyingPreference;
+  private BuyPreference buyingPreference;
   private String shoppingPreference;
   private String favouriteSneaker;
   // private LocalDateTime createdAt;
@@ -27,8 +34,7 @@ public class Survey {
   public Survey() {
   }
 
-  public Survey( String firstName, String lastName, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, String buyingPreference, String shoppingPreference, String favouriteSneaker) {
-    // this.id = id;
+  public Survey( String firstName, String lastName, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference, String shoppingPreference, String favouriteSneaker) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
@@ -61,7 +67,7 @@ public class Survey {
   public List<String> getFavouriteBrands(){
     return favouriteBrands;
   }
-  public String getBuyingPreference(){
+  public BuyPreference getBuyingPreference(){
     return buyingPreference;
   }
   public String getShoppingPreference(){
@@ -88,7 +94,7 @@ public class Survey {
   public void setFavouriteBrands(List<String> favouriteBrands){
     this.favouriteBrands = favouriteBrands;
   }
-  public void setBuyingPreference(String buyingPreference){
+  public void setBuyingPreference(BuyPreference buyingPreference){
     this.buyingPreference = buyingPreference;
   }
   public void setShoppingPreference(String shoppingPreference){
