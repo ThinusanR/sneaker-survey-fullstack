@@ -24,7 +24,7 @@ public class SurveyController {
   @PostMapping("/surveys")
   public ResponseEntity<Survey> addSurvey(@RequestBody Survey newSurvey){
     try{
-      Survey survey = surveyRepository.save(new Survey(newSurvey.getFirstName(),newSurvey.getLastName(),newSurvey.getAge(), newSurvey.getGender(),newSurvey.getShoeSize(),newSurvey.getFavouriteBrands(),newSurvey.getBuyingPreference(),newSurvey.getShoppingPreference(), newSurvey.getFavouriteSneaker()));
+      Survey survey = surveyRepository.save(new Survey(newSurvey.getFirstName(),newSurvey.getLastName(), newSurvey.getEmail(), newSurvey.getAge(), newSurvey.getGender(),newSurvey.getShoeSize(),newSurvey.getFavouriteBrands(),newSurvey.getBuyingPreference(),newSurvey.getShoppingPreference(), newSurvey.getFavouriteSneaker(), newSurvey.getCreatedAt()));
       return new ResponseEntity<>(survey, HttpStatus.CREATED);
     }
     catch (Exception e){

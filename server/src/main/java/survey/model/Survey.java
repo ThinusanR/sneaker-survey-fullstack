@@ -14,9 +14,6 @@ public class Survey {
   enum BuyPreference {
     ONLINE, INSTORE, BOTH
   }
-  
-  //https://stackoverflow.com/questions/13109497/list-of-enum-values-in-java
-  //https://www.javabrahman.com/corejava/the-complete-java-enums-tutorial-with-examples/
  
   @Id
   private String id;
@@ -30,12 +27,12 @@ public class Survey {
   private BuyPreference buyingPreference;
   private List<String> shoppingPreference = new ArrayList<String>();
   private String favouriteSneaker;
-  // private LocalDateTime createdAt;
+  private String createdAt;
   
   public Survey() {
   }
 
-  public Survey( String firstName, String lastName, String email, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference, List<String> shoppingPreference, String favouriteSneaker) {
+  public Survey( String firstName, String lastName, String email, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference, List<String> shoppingPreference, String favouriteSneaker, String createdAt) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email= email;
@@ -46,7 +43,7 @@ public class Survey {
     this.buyingPreference = buyingPreference;
     this.shoppingPreference = shoppingPreference;
     this.favouriteSneaker = favouriteSneaker;
-    // this.createdAt = createdAt;
+    this.createdAt = createdAt;
   }
   public String getId(){
     return id;
@@ -56,6 +53,9 @@ public class Survey {
   }
   public String getLastName(){
     return lastName;
+  }
+  public String getEmail(){
+    return email;
   }
   public Integer getAge(){
     return age;
@@ -78,11 +78,17 @@ public class Survey {
   public String getFavouriteSneaker(){
     return favouriteSneaker;
   }
+  public String getCreatedAt(){
+    return createdAt;
+  }
   public void setFirstName(String firstName){
     this.firstName = firstName;
   }
   public void setLastName(String lastName){
     this.lastName = lastName;
+  }
+  public void setEmail(String email){
+    this.email = email;
   }
   public void setAge(Integer age){
     this.age = age;
@@ -104,6 +110,9 @@ public class Survey {
   }
   public void setFavouriteSneaker(String favouriteSneaker){
     this.favouriteSneaker = favouriteSneaker;
+  }
+  public void setCreatedAt(String createdAt){
+    this.createdAt = createdAt;
   }
  
 

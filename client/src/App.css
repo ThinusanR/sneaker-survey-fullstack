@@ -35,6 +35,13 @@ header {text-align: center;
   margin-bottom: 1rem;
 
 }
+.input-group-name {
+  display: flex;
+}
+.input-group-name, .input-group{
+  flex: 1;
+  gap: 20px;
+}
 
 
 .form-label,

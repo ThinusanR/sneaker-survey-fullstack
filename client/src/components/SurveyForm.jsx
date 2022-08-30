@@ -28,6 +28,7 @@ function SurveyForm() {
 
   const onSubmit = (values) => {
     values.shoeSize = shoeSize;
+    values.createdAt = new Date().toLocaleString();
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -49,29 +50,31 @@ function SurveyForm() {
         }}
       >
         <Form id="survey-form">
-          <div className="input-group">
-            <label className="form-label" htmlFor="firstName">
-              First Name
-              <Field
-                name="firstName"
-                type="text"
-                className="input-text"
-                placeholder="Enter your first name"
-                required
-              />
-            </label>
-          </div>
-          <div className="input-group">
-            <label className="form-label" htmlFor="lastName">
-              Last Name
-              <Field
-                name="lastName"
-                type="text"
-                className="input-text"
-                placeholder="Enter your last name"
-                required
-              />
-            </label>
+          <div className="input-group-name">
+            <div className="input-group">
+              <label className="form-label" htmlFor="firstName">
+                First Name
+                <Field
+                  name="firstName"
+                  type="text"
+                  className="input-text"
+                  placeholder="Enter your first name"
+                  required
+                />
+              </label>
+            </div>
+            <div className="input-group">
+              <label className="form-label" htmlFor="lastName">
+                Last Name
+                <Field
+                  name="lastName"
+                  type="text"
+                  className="input-text"
+                  placeholder="Enter your last name"
+                  required
+                />
+              </label>
+            </div>
           </div>
           <div className="input-group">
             <label htmlFor="email" className="form-label">
