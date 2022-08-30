@@ -22,21 +22,23 @@ public class Survey {
   private String id;
   private String firstName;
   private String lastName;
+  private String email;
   private Integer age;
   private Gender gender;
   private String shoeSize;
   private List<String> favouriteBrands = new ArrayList<String>();
   private BuyPreference buyingPreference;
-  private String shoppingPreference;
+  private List<String> shoppingPreference = new ArrayList<String>();
   private String favouriteSneaker;
   // private LocalDateTime createdAt;
   
   public Survey() {
   }
 
-  public Survey( String firstName, String lastName, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference, String shoppingPreference, String favouriteSneaker) {
+  public Survey( String firstName, String lastName, String email, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference, List<String> shoppingPreference, String favouriteSneaker) {
     this.firstName = firstName;
     this.lastName = lastName;
+    this.email= email;
     this.age = age;
     this.gender = gender;
     this.shoeSize = shoeSize;
@@ -70,7 +72,7 @@ public class Survey {
   public BuyPreference getBuyingPreference(){
     return buyingPreference;
   }
-  public String getShoppingPreference(){
+  public List<String> getShoppingPreference(){
     return shoppingPreference;
   }
   public String getFavouriteSneaker(){
@@ -97,7 +99,7 @@ public class Survey {
   public void setBuyingPreference(BuyPreference buyingPreference){
     this.buyingPreference = buyingPreference;
   }
-  public void setShoppingPreference(String shoppingPreference){
+  public void setShoppingPreference(List<String> shoppingPreference){
     this.shoppingPreference = shoppingPreference;
   }
   public void setFavouriteSneaker(String favouriteSneaker){

@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+// import { useState } from 'react';
 
-function ShoeSizeBtnGroup() {
+function ShoeSizeBtnGroup({ setSize }) {
+  // const [btnClicked, setBtn] = useState(false);
+
   const shoeSizes = [
     'US M 3.5 / W 5',
     'US M 4 / W 5.5',
@@ -27,15 +30,29 @@ function ShoeSizeBtnGroup() {
     'US M 14.5 / W 16',
     'US M 15 / W 16.5',
   ];
-  const [shoeSize, setSize] = useState('');
-  console.log(shoeSize);
+  // const [shoeSize, setSize] = useState('');
+  // console.log(shoeSize);
   return (
     <div className="input-group">
       <p>what is your Shoe Size?</p>
       <ul id="btn-group">
-        {shoeSizes.map((shoe) => <button className="input-btn" type="button" name="shoe-size" onChange={(event) => setSize(event.target.value)} value={shoe}>{shoe}</button>)}
+        {shoeSizes.map((shoe) => (
+          <button
+            className="input-btn"
+            type="button"
+            name="shoeSize"
+            onClick={(event) => setSize(event.target.value)}
+            key={shoe}
+            value={shoe}
+          >
+            {shoe}
+          </button>
+        ))}
       </ul>
     </div>
   );
 }
+ShoeSizeBtnGroup.propTypes = {
+  setSize: PropTypes.func.isRequired,
+};
 export default ShoeSizeBtnGroup;
