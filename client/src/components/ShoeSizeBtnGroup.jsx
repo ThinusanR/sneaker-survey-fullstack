@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
-// import { useState } from 'react';
+import { ErrorMessage, Field, useFormikContext } from 'formik';
 
-function ShoeSizeBtnGroup({ setSize }) {
+function ShoeSizeBtnGroup() {
   // const [btnClicked, setBtn] = useState(false);
 
   const shoeSizes = [
@@ -32,27 +31,32 @@ function ShoeSizeBtnGroup({ setSize }) {
   ];
   // const [shoeSize, setSize] = useState('');
   // console.log(shoeSize);
+  const formikProps = useFormikContext();
   return (
     <div className="input-group">
       <p>what is your Shoe Size?</p>
-      <ul id="btn-group">
-        {shoeSizes.map((shoe) => (
+      <ErrorMessage name="shoeSize" render={() => <div>Please select a shoe sice mf </div>} />
+      <Field
+        name="shoeSize"
+        as="ul"
+        id="btn-group"
+      >
+        { shoeSizes.map((shoe) => (
           <button
             className="input-btn"
             type="button"
-            name="shoeSize"
-            onClick={(event) => setSize(event.target.value)}
+            onClick={(event) => formikProps.setFieldValue('shoeSize', event.target.value)}
             key={shoe}
             value={shoe}
           >
             {shoe}
           </button>
-        ))}
-      </ul>
+        )) }
+      </Field>
     </div>
   );
 }
-ShoeSizeBtnGroup.propTypes = {
-  setSize: PropTypes.func.isRequired,
-};
+// ShoeSizeBtnGroup.propTypes = {
+//   setSize: PropTypes.func.isRequired,
+// };
 export default ShoeSizeBtnGroup;

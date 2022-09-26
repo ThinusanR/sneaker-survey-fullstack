@@ -1,17 +1,23 @@
-// import logo from './logo.svg';
+import { useState } from 'react';
 import SurveyForm from './components/SurveyForm';
 
 import './App.css';
 
 function App() {
+  const [didSubmit, setSubmit] = useState(false);
   return (
     <div className="App">
       <header>
         <h1>Sneaker Survey</h1>
-        <p id="description">Thank you for taking the time to complete this survey.</p>
+        {didSubmit
+          ? <p />
+          : <p>Please fill out the survey form</p>}
       </header>
       <main className="container">
-        <SurveyForm />
+        {didSubmit
+          ? <div className="survey-form"><p id="description">Thank you for completing the survey.</p></div>
+          : <SurveyForm setSubmit={setSubmit} />}
+        {/* <SurveyForm setSubmit={setSubmit} /> */}
       </main>
     </div>
   );

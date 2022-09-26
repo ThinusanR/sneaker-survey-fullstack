@@ -96,11 +96,15 @@ resize:vertical;
   }
   
 }
+#description{
+  text-align:center;
+}
 
-#survey-form {
+.survey-form {
   background-color: rgba(27, 27, 50, 0.8);
   padding: 1.5rem;
   border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #btn-group{
@@ -110,11 +114,8 @@ resize:vertical;
   width:100%;
 }
 
-
 .radio-group {
   text-align: left;
-
-
 }
 .input-btn{
 padding: 0.5rem 1rem;
@@ -132,9 +133,14 @@ box-shadow: 0 0.5em 0.5em -0.4em #ff5b00;
 border-color: #ff5b00;
 }
 
-
 #submit-btn{
 color:white;
 background-color:green;
-border-radius: 	1rem;
+border-radius: 	0.5rem;
+cursor:pointer;
+width:50%;
+margin: 0 auto;
+}
+h1{
+  color: white;
 }
