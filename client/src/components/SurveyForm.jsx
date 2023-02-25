@@ -8,7 +8,6 @@ import BrandCheckboxGroup from './BrandCheckboxGroup';
 import ShoeSizeBtnGroup from './ShoeSizeBtnGroup';
 
 function SurveyForm({ setSubmit }) {
-  // const [shoeSize, setSize] = useState('');
   const valdiationSchema = Yup.object({
     firstName: Yup.string().required(),
     lastName: Yup.string().required(),
@@ -34,11 +33,7 @@ function SurveyForm({ setSubmit }) {
     favouriteSneaker: '',
   };
 
-  const onSubmit = (values) => {
-    // if (shoeSize === '') {
-    //   return alert('shoesize');
-    // }
-    // values.shoeSize = shoeSize;
+  const submitForm = (values) => {
     values.createdAt = new Date().toLocaleString();
     const requestOptions = {
       method: 'POST',
@@ -62,7 +57,7 @@ function SurveyForm({ setSubmit }) {
         initialValues={intialValues}
         validationSchema={valdiationSchema}
         onSubmit={async (values, { resetForm }) => {
-          await onSubmit(values);
+          await submitForm(values);
           resetForm();
         }}
       >
@@ -189,7 +184,7 @@ function SurveyForm({ setSubmit }) {
               Directly from the retail brand (ex. Nike/SNKRS, Addidas & Yeezysupply)
             </label>
             <label className="input-checkbox" htmlFor="shoppingPreference">
-              <Field type="checkbox" name="shoppingPreference" value="footwear-retailer" />
+              <Field type="checkbox" name="shoppingPreference" value="footwear-retailer" data-testid="store1" />
               Footwear Retailer (ex. Footlocker, Sportchek & Champs)
             </label>
             <label className="input-checkbox" htmlFor="shoppingPreference">

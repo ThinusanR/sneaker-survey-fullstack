@@ -17,7 +17,7 @@ function BrandCheckboxGroup() {
         className="input-checkbox"
         htmlFor="favouriteBrands"
       >
-        <Field type="checkbox" name="brand" value="designer" />
+        <Field type="checkbox" name="Field" value="designer" />
         Designer Brands (ex. Gucci, Balenciaga & Louis Vuttion)
       </label>
     </div>

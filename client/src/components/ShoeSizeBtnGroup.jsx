@@ -33,11 +33,11 @@ function ShoeSizeBtnGroup() {
   // console.log(shoeSize);
   const formikProps = useFormikContext();
   return (
-    <div className="input-group">
+    <div className="input-group" data-testid="shoe-sizes">
       <p>what is your Shoe Size?</p>
-      <ErrorMessage name="shoeSize" render={() => <div>Please select a shoe sice mf </div>} />
+      <ErrorMessage name="shoeSize" render={() => <div>Please select a shoe size </div>} />
       <Field
-        name="shoeSize"
+        // name="shoeSize"
         as="ul"
         id="btn-group"
       >
@@ -48,6 +48,7 @@ function ShoeSizeBtnGroup() {
             onClick={(event) => formikProps.setFieldValue('shoeSize', event.target.value)}
             key={shoe}
             value={shoe}
+            name="shoeSize"
           >
             {shoe}
           </button>
