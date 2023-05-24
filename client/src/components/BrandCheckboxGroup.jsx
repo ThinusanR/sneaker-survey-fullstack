@@ -8,7 +8,7 @@ function BrandCheckboxGroup() {
       <p>What is your favourite brand of sneakers? (check all that apply)</p>
       <ErrorMessage name="favouriteBrands" render={() => <div>Please check atleast one brand</div>} />
       {brands.map((brand) => (
-        <label className="input-checkbox" htmlFor="favouriteBrands" key={brand}>
+        <label className="input-checkbox" key={brand}>
           <Field type="checkbox" name="favouriteBrands" key={brand} value={brand} />
           {brand}
         </label>
@@ -17,7 +17,7 @@ function BrandCheckboxGroup() {
         className="input-checkbox"
         htmlFor="favouriteBrands"
       >
-        <Field type="checkbox" name="Field" value="designer" />
+        <Field type="checkbox" name="Field" value="Designer" />
         Designer Brands (ex. Gucci, Balenciaga & Louis Vuttion)
       </label>
     </div>

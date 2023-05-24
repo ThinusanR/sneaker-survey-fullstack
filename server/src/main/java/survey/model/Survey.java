@@ -20,19 +20,21 @@ public class Survey {
   private String firstName;
   private String lastName;
   private String email;
-  private Integer age;
+  private String age;
   private Gender gender;
   private String shoeSize;
   private List<String> favouriteBrands = new ArrayList<String>();
   private BuyPreference buyingPreference;
   private List<String> shoppingPreference = new ArrayList<String>();
   private String favouriteSneaker;
+  private String numOfShoes;
+  private String maxPay;
   private String createdAt;
   
   public Survey() {
   }
 
-  public Survey( String firstName, String lastName, String email, Integer age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference, List<String> shoppingPreference, String favouriteSneaker, String createdAt) {
+  public Survey( String firstName, String lastName, String email, String age, Gender gender, String shoeSize, List<String> favouriteBrands, BuyPreference buyingPreference,String numOfShoes, String maxPay, List<String> shoppingPreference, String favouriteSneaker, String createdAt) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email= email;
@@ -43,6 +45,8 @@ public class Survey {
     this.buyingPreference = buyingPreference;
     this.shoppingPreference = shoppingPreference;
     this.favouriteSneaker = favouriteSneaker;
+    this.maxPay = maxPay;
+    this.numOfShoes = numOfShoes;
     this.createdAt = createdAt;
   }
   public String getId(){
@@ -57,7 +61,7 @@ public class Survey {
   public String getEmail(){
     return email;
   }
-  public Integer getAge(){
+  public String getAge(){
     return age;
   }
   public Gender getGender(){
@@ -78,9 +82,16 @@ public class Survey {
   public String getFavouriteSneaker(){
     return favouriteSneaker;
   }
+  public String getNumOfShoes(){
+    return numOfShoes;
+  }
+  public String getMaxPay(){
+    return maxPay;
+  }
   public String getCreatedAt(){
     return createdAt;
   }
+
   public void setFirstName(String firstName){
     this.firstName = firstName;
   }
@@ -90,7 +101,7 @@ public class Survey {
   public void setEmail(String email){
     this.email = email;
   }
-  public void setAge(Integer age){
+  public void setAge(String age){
     this.age = age;
   }
   public void setGender(Gender gender){
@@ -107,6 +118,12 @@ public class Survey {
   }
   public void setShoppingPreference(List<String> shoppingPreference){
     this.shoppingPreference = shoppingPreference;
+  }
+  public void setNumOfShoes(String numOfShoes){
+    this.numOfShoes = numOfShoes;
+  }
+  public void setMaxPay(String maxPay){
+    this.maxPay= maxPay;
   }
   public void setFavouriteSneaker(String favouriteSneaker){
     this.favouriteSneaker = favouriteSneaker;

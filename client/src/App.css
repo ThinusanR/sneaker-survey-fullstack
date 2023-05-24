@@ -11,7 +11,7 @@ body {
 
 input[type="radio"] {
   transform: scale(1.5);
-  margin-right: 0.5rem;
+  margin: 0.5rem;
 }
 
 h1 {
@@ -23,11 +23,12 @@ header p,
 header {text-align: center;
 }
 
-#description {
+.description {
   margin-top: 0;
   font-style: italic;
   font-size: 1.25rem;
-
+  text-align:center;
+  
 
 }
 
@@ -96,15 +97,13 @@ resize:vertical;
   }
   
 }
-#description{
-  text-align:center;
-}
 
-.survey-form {
+
+.survey-container {
   background-color: rgba(27, 27, 50, 0.8);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 #btn-group{
@@ -136,11 +135,66 @@ border-color: #ff5b00;
 #submit-btn{
 color:white;
 background-color:green;
+opacity: 0.5;
 border-radius: 	0.5rem;
 cursor:pointer;
 width:50%;
 margin: 0 auto;
 }
+#submit-btn:hover{
+  opacity: 1;
+}
 h1{
   color: white;
 }
+
+.row{
+  display:flex;
+}
+.column{
+  flex:50%;
+  display:flex;
+  flex-direction: column;
+}
+/* .coolBeans {
+  border: 2px solid currentColor;
+  border-radius: 3rem;
+  color: yellow;
+  font-family: roboto;
+  font-size: 4rem;
+  font-weight: 100;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  text-decoration: none;
+  transition: .2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+}
+  
+.coolBeans::after{
+    background-color: yellow;
+    border-radius: 3rem;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: .2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+} 
+.coolBeans:hover::after{
+    transform: translate(0, 0);
+}
+    
+.coolBeans:hover{
+    border: 2px solid transparent;
+    color: indigo;
+    transform: scale(1.05);
+    will-change: transform;
+  } */
