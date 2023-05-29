@@ -14,7 +14,7 @@ function BuyingDoughnutChart({filteredData}){
     labels: ['Online','In-Store','Both'],
     datasets:[
       {
-        label: '# of Votes',
+        label: '# of Participants',
         data: [buyingPrefCount.ONLINE, buyingPrefCount.INSTORE, buyingPrefCount.BOTH],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -39,7 +39,8 @@ function BuyingDoughnutChart({filteredData}){
    }
 
   return (
-    <div>
+    <div className="chart-container">
+      <p className="description">Buying Preference</p>
       <Doughnut data={config} />
     </div>
   )

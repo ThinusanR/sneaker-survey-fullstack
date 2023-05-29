@@ -33,7 +33,7 @@ function ShoePairsChart({filteredData}) {
     "Between 35 - 50 pairs",
     "over 50+ pairs"],
     datasets: [{
-      label: 'My First Dataset',
+      label: '# of Participants',
       data: pairsCount,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -58,7 +58,8 @@ function ShoePairsChart({filteredData}) {
   };
 
   return (
-    <div>
+    <div className="chart-container">
+        <p className="description">Average Pairs Of Shoes Owned</p>
       <Bar data={config}/>
     </div>
   )

@@ -23,7 +23,7 @@ function AgePolarAreaChart({filteredData}){
   let config= {
     labels : Object.values(labels),
     datasets: [{
-      label: 'My First Dataset',
+      label: '# of Participants',
       data: [ageCount.ageRange1,ageCount.ageRange2,ageCount.ageRange3,ageCount.ageRange4,ageCount.ageRange5,ageCount.ageRange6],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -48,7 +48,8 @@ function AgePolarAreaChart({filteredData}){
   };
 
   return (
-    <div>
+    <div className="chart-container">
+      <p className="description">Age Range</p>
       <PolarArea data={config} />
     </div>
   )

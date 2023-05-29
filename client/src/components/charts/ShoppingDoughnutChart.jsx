@@ -52,7 +52,8 @@ function ShoppingDoughnutChart({filteredData}){
     ]
    }
   return (
-    <div>
+    <div className="chart-container">
+      <p className="description">Shopping Preference</p>
       <Doughnut data={config}/>
     </div>
   )

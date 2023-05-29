@@ -40,8 +40,9 @@ console.log("hello----",filteredData)
     "Between $600 - $800 CAD",
     "Over $800+ CAD"],
     datasets: [{
-      label: 'My First Dataset',
+      label: '# of Participants',
       data: spendingCount,
+      
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)',
@@ -64,7 +65,8 @@ console.log("hello----",filteredData)
     }]
   };
   return (
-    <div>
+    <div className="chart-container">
+        <p className="description">Average Amount Spent On A Pair Of Shoes</p>
       <Bar data={config} />
     </div>
   )

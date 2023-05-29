@@ -44,7 +44,7 @@ function SizeBarChart({filteredData}) {
   let config= {
   labels,
   datasets: [{
-    label: 'My First Dataset',
+    label: '# of Participants',
     data: sizeCount,
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
@@ -69,9 +69,9 @@ function SizeBarChart({filteredData}) {
 };
 
 return (
-  <div>
+  <div className="chart-container">
+      <p className="description">Shoe Sizes</p>
     <Bar data={config} />
-
   </div>
 );
 }
