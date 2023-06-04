@@ -6,7 +6,7 @@ import {Chart, registerables} from "chart.js"
 import "./App.css";
 
 function App() {
-  const [didSubmit, setSubmit] = useState(true); //false
+  const [didSubmit, setSubmit] = useState(false); //false
   const [viewResults,setViewResults] = useState(false);
   const [surveyData, setData] = useState('');
   Chart.register(...registerables);
