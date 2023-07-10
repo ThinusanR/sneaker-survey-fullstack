@@ -10,7 +10,7 @@ import {AgeRangeInput,
   BrandCheckboxGroup,
   ShoeSizeBtnGroup,
 
-} from './FormInputs/index'
+} from './formInputs'
 
 function SurveyForm({ setSubmit }) {
   const valdiationSchema = Yup.object({

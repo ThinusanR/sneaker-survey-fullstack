@@ -12,7 +12,7 @@ import {
   AgePolarAreaChart, 
   BrandsRadarChart,
   ShoppingDoughnutChart
-} from "./Charts/index";
+} from "./charts";
 
 function SurveyResults({data}){
   
