@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 
 // ChartJS.register(ArcElement, Tooltip, Legend);
 
-function ShoePairsChart({filteredData}) {
+function ShoePairsBarChart({filteredData}) {
   console.log("data", filteredData)
   const labels = {
     "numShoeRange1" : "Under 5 pairs",
@@ -56,16 +56,27 @@ function ShoePairsChart({filteredData}) {
       borderWidth: 1
     }]
   };
+  const options = {
+    scales: {
+      yAxes: {
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)",
+        }, ticks: {
+          display: false
+      }
+      },
+    },
+  };
 
   return (
     <div className="chart-container">
         <p className="description">Average Pairs Of Shoes Owned</p>
-      <Bar data={config}/>
+      <Bar data={config} options={options}/>
     </div>
   )
 }
 
-export default ShoePairsChart;
+export default ShoePairsBarChart;
 
 // numOfShoes
 

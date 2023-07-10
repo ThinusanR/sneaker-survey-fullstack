@@ -99,10 +99,11 @@ resize:vertical;
 }
 
 .chart-container{
-  border: 1px solid rgba(255, 255, 255, 0.432);
+  border: 1px solid rgba(255, 255, 255, 0.461);
   padding: 25px 0px;
   margin: 25px 0px;
   border-radius: 0.5rem;
+  
 }
 
 
@@ -138,6 +139,12 @@ color: #ff5b00;
 box-shadow: 0 0.5em 0.5em -0.4em #ff5b00;
 border-color: #ff5b00;
 }
+.input-btn-selected{
+  color: #ff5b00;
+  box-shadow: 0 0.5em 0.5em -0.4em #ff5b00;
+  border-color: #ff5b00;
+  background-color:transparent; 
+  }
 
 #submit-btn{
 color:white;

@@ -46,11 +46,23 @@ function AgePolarAreaChart({filteredData}){
       borderWidth: 1
     }]
   };
+  const options = {
+    scales: {
+      r:{
+        angleLines:{
+          color:"rgba(255, 255, 255, 0.18)"
+        },
+        grid:{
+          color: "rgba(255, 255, 255, 0.1)"
+        }
+      }
+    },
+  };
 
   return (
     <div className="chart-container">
       <p className="description">Age Range</p>
-      <PolarArea data={config} />
+      <PolarArea data={config} options={options}/>
     </div>
   )
 }

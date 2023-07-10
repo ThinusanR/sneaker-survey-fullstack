@@ -4,8 +4,13 @@ import PropTypes from 'prop-types';
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
-import BrandCheckboxGroup from './BrandCheckboxGroup';
-import ShoeSizeBtnGroup from './ShoeSizeBtnGroup';
+
+import {AgeRangeInput,
+  SneakerPairInput,
+  BrandCheckboxGroup,
+  ShoeSizeBtnGroup,
+
+} from './FormInputs/index'
 
 function SurveyForm({ setSubmit }) {
   const valdiationSchema = Yup.object({
@@ -112,106 +117,9 @@ function SurveyForm({ setSubmit }) {
               <ErrorMessage name="email" component="div" />
             </label>
           </div>
-          {/* <div className="input-group">
-            <label htmlFor="age" className="form-label">
-              Age
-              <Field
-                type="number"
-                name="age"
-                id="age"
-                min="1"
-                max="100"
-                // value={ageInput}
-                // onChange={(event) => setAge(event.target.value)}
-                placeholder="Age"
-                className="input-text"
-                required
-              />
-            </label>
-          </div> */}
-          <div className="input-group">
-            <p>
-            Select your age range
-            </p>
-            <div className="row">
-              <div className="column">
-                <label className="form-label radio" htmlFor="ageRange1">
-                  <Field
-                    type="radio"
-                    name="age"
-                    id="ageRange1"
-                    value="ageRange1"
-                    // onChange={(event) => setGender(event.target.value)}
-                    required
-                    className="input-radio"
-                  />
-                  Under 10 years old
-                </label>
-                <label className="form-label radio" htmlFor="ageRange2">
-                  <Field
-                    type="radio"
-                    name="age"
-                    id="ageRange2"
-                    value="ageRange2"
-                    // onChange={(event) => setGender(event.target.value)}
-                    required
-                    className="input-radio"
-                  />
-                  Between 10 - 20 years old
-                </label>
-                <label className="form-label radio" htmlFor="ageRange3">
-                  <Field
-                    type="radio"
-                    name="age"
-                    id="ageRange3"
-                    value="ageRange3"
-                    // onChange={(event) => setGender(event.target.value)}
-                    required
-                    className="input-radio"
-                  />
-                  Between 20 - 30 years old
-                </label>
-              </div>
-              <div className="column">
-                <label className="form-label radio" htmlFor="ageRange4">
-                  <Field
-                    type="radio"
-                    name="age"
-                    id="ageRange4"
-                    value="ageRange4"
-                    // onChange={(event) => setGender(event.target.value)}
-                    required
-                    className="input-radio"
-                  />
-                  Between 30 - 45 years old
-                </label>
-                <label className="form-label radio" htmlFor="ageRange5">
-                  <Field
-                    type="radio"
-                    name="age"
-                    id="ageRange5"
-                    value="ageRange5"
-                    // onChange={(event) => setGender(event.target.value)}
-                    required
-                    className="input-radio"
-                  />
-                  Between 45 - 60 years old
-                </label>
-                <label className="form-label" htmlFor="ageRange6">
-                  <Field
-                    type="radio"
-                    name="age"
-                    id="ageRange6"
-                    value="ageRange6"
-                    // onChange={(event) => setGender(event.target.value)}
-                    required
-                    className="input-radio"
-                  />
-                  60 years and older
-                </label>
-              </div>
-            </div>
-          </div>
+          <AgeRangeInput/>
+          
+          
           <div className="input-group">
             <p>Select your Gender</p>
             <div className='row'>
@@ -270,7 +178,7 @@ function SurveyForm({ setSubmit }) {
             </label>
           </div> */}
 
-          <div className="input-group">
+          {/* <div className="input-group">
             <p>
             How many pairs of sneakers do you own?
             </p>
@@ -352,7 +260,7 @@ function SurveyForm({ setSubmit }) {
                 </label>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <BrandCheckboxGroup />
           <div className="input-group">

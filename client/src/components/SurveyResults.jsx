@@ -2,14 +2,17 @@
 
 import { useState, useEffect } from "react";
 import {cleanData} from "../helper" // remove
-import GenderPieChart from "./charts/GenderPieChart";
-import SizeBarChart from "./charts/SizeBarChart";
-import SpendingBarChart from "./charts/SpendingBarChart";
-import ShoePairsChart from "./charts/ShoePairsBarChart";
-import BuyingDoughnutChart from "./charts/BuyingDoughnutChart";
-import AgePolarAreaChart from "./charts/AgePolarAreaChart";
-import BrandsRadarChart from "./charts/BrandsRadarChart";
-import ShoppingDoughnutChart from "./charts/ShoppingDoughnutChart";
+
+import {
+  GenderPieChart,
+  SizeBarChart,
+  SpendingBarChart,
+  ShoePairsBarChart,
+  BuyingDoughnutChart,
+  AgePolarAreaChart, 
+  BrandsRadarChart,
+  ShoppingDoughnutChart
+} from "./Charts/index";
 
 function SurveyResults({data}){
   
@@ -52,7 +55,7 @@ function SurveyResults({data}){
       <GenderPieChart filteredData={filteredData}/>
       <SizeBarChart filteredData={filteredData}/>
       <SpendingBarChart filteredData={filteredData}/>
-      <ShoePairsChart filteredData={filteredData} />
+      <ShoePairsBarChart filteredData={filteredData} />
       <BuyingDoughnutChart filteredData={filteredData} />
       <AgePolarAreaChart filteredData={filteredData} />
       <BrandsRadarChart filteredData={filteredData} />

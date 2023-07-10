@@ -2,7 +2,7 @@ import { Field, ErrorMessage } from 'formik';
 
 function BrandCheckboxGroup() {
   const brands = ['Adidas', 'Converse', 'Puma', 'Vans', 'Air Jordan', 'Reebok', 'New Balance', 'Asics', 'Yeezy'];
-  // todo:change brands so that it is passed in as props for this component
+ 
   return (
     <div className="input-group">
       <p>What is your favourite brand of sneakers? (check all that apply)</p>
@@ -15,9 +15,10 @@ function BrandCheckboxGroup() {
       ))}
       <label
         className="input-checkbox"
-        htmlFor="favouriteBrands"
+        
+        key={'Designer'}
       >
-        <Field type="checkbox" name="Field" value="Designer" />
+        <Field type="checkbox" name="favouriteBrands" value="Designer" />
         Designer Brands (ex. Gucci, Balenciaga & Louis Vuttion)
       </label>
     </div>

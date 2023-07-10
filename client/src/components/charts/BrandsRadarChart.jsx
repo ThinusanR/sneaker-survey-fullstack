@@ -49,15 +49,15 @@ function BrandsRadarChart({filteredData}) {
     // },
   };
   const options = {
-    scale: {
-      gridLines: {
-        color: 'rgb(54, 162, 235)', // Change the color of the grid lines
-        lineWidth: 1, // Adjust the width of the grid lines
-      },
-      angleLines: {
-        color: 'rgb(54, 162, 235)', // Change the color of the angle lines
-        lineWidth: 1, // Adjust the width of the angle lines
-      },
+    scales: {
+      r:{
+        angleLines:{
+          color:"rgba(255, 255, 255, 0.18)"
+        },
+        grid:{
+          color: "rgba(255, 255, 255, 0.1)"
+        }
+      }
     },
   };
   return (
@@ -68,4 +68,4 @@ function BrandsRadarChart({filteredData}) {
   );
 }
 
-export default BrandsRadarChart
+export default BrandsRadarChart;

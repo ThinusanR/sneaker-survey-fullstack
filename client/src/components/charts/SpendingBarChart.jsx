@@ -64,10 +64,21 @@ console.log("hello----",filteredData)
       borderWidth: 1
     }]
   };
+  const options = {
+    scales: {
+      yAxes: {
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)",
+        }, ticks: {
+          display: false
+      }
+      },
+    },
+  };
   return (
     <div className="chart-container">
         <p className="description">Average Amount Spent On A Pair Of Shoes</p>
-      <Bar data={config} />
+      <Bar data={config} options={options}/>
     </div>
   )
 }
