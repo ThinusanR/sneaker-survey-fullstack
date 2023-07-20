@@ -1,7 +1,9 @@
+/* eslint-disable eqeqeq */
 import { ErrorMessage, Field, useFormikContext } from 'formik';
 import { useState } from 'react';
+
 function ShoeSizeBtnGroup() {
-  const [btnClicked, setBtn] = useState({clicked:false, key:''});
+  const [btnClicked, setBtn] = useState({ clicked: false, key: '' });
 
   const shoeSizes = [
     'US M 3.5 / W 5',
@@ -43,13 +45,12 @@ function ShoeSizeBtnGroup() {
       >
         { shoeSizes.map((shoe) => (
           <button
-            className={btnClicked.clicked && btnClicked.key == shoe ? 'input-btn-selected': 'input-btn'}
+            className={btnClicked.clicked && btnClicked.key == shoe ? 'input-btn-selected' : 'input-btn'}
             type="button"
             onClick={(event) => {
               formikProps.setFieldValue('shoeSize', event.target.value);
-              setBtn({clicked:true, key:shoe});
-            }
-          }
+              setBtn({ clicked: true, key: shoe });
+            }}
             key={shoe}
             value={shoe}
             name="shoeSize"

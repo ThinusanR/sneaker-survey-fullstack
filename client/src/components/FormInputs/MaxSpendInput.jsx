@@ -1,88 +1,93 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { Field } from 'formik';
 
-function AgeRangeInput() {
+function MaxSpendInput() {
   return (
     <div className="input-group">
-      <p>Select your age range</p>
+      <p>
+        What is the max amount of money you are willing to spend on a pair of
+        sneaker's?
+      </p>
       <div className="row">
         <div className="column">
-          <label className="form-label radio" htmlFor="ageRange1">
+          <label className="form-label radio" htmlFor="payRange1">
             <Field
               type="radio"
-              name="age"
-              id="ageRange1"
-              value="ageRange1"
+              name="maxPay"
+              id="payRange1"
+              value="payRange1"
               // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
-            Under 10 years old
+            Under $100 CAD
           </label>
-          <label className="form-label radio" htmlFor="ageRange2">
+          <label className="form-label radio" htmlFor="payRange2">
             <Field
               type="radio"
-              name="age"
-              id="ageRange2"
-              value="ageRange2"
+              name="maxPay"
+              id="payRange2"
+              value="payRange2"
               // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
-            Between 10 - 20 years old
+            Between $100 - $200 CAD
           </label>
-          <label className="form-label radio" htmlFor="ageRange3">
+          <label className="form-label radio" htmlFor="payRange3">
             <Field
               type="radio"
-              name="age"
-              id="ageRange3"
-              value="ageRange3"
+              name="maxPay"
+              id="payRange3"
+              value="payRange3"
               // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
-            Between 20 - 30 years old
+            Between $200 - $400 CAD
           </label>
         </div>
         <div className="column">
-          <label className="form-label radio" htmlFor="ageRange4">
+          <label className="form-label radio" htmlFor="payRange4">
             <Field
               type="radio"
-              name="age"
-              id="ageRange4"
-              value="ageRange4"
+              name="maxPay"
+              id="payRange4"
+              value="payRange4"
               // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
-            Between 30 - 45 years old
+            Between $400 - $600 CAD
           </label>
-          <label className="form-label radio" htmlFor="ageRange5">
+          <label className="form-label radio" htmlFor="payRange5">
             <Field
               type="radio"
-              name="age"
-              id="ageRange5"
-              value="ageRange5"
+              name="maxPay"
+              id="payRange5"
+              value="payRange5"
               // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
-            Between 45 - 60 years old
+            Between $600 - $800 CAD
           </label>
-          <label className="form-label" htmlFor="ageRange6">
+          <label className="form-label radio" htmlFor="payRange6">
             <Field
               type="radio"
-              name="age"
-              id="ageRange6"
-              value="ageRange6"
+              name="maxPay"
+              id="payRange6"
+              value="payRange6"
               // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
-            60 years and older
+            Over $800+ CAD
           </label>
         </div>
       </div>
     </div>
   );
 }
-export default AgeRangeInput;
+export default MaxSpendInput;

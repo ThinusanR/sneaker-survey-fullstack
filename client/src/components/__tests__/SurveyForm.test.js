@@ -1,140 +1,260 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import SurveyForm from "../SurveyForm";
-import {
-  Formik, Form, Field, ErrorMessage,
-} from 'formik';
-import BrandCheckboxGroup from '../BrandCheckboxGroup';
-import { act } from "react-dom/test-utils";
-describe("Testing SurveyForm Component", () => {
-  const setSubmit = jest.fn()
-    const user = userEvent.setup();
-    const submitForm = jest.fn();
-    render(<SurveyForm setSubmit={setSubmit} />);
-  test('test render brandcheckbox group', () => {
-    // screen.debug(screen.getByText("Converse"));
-    expect(screen.getByText("Converse")).toBeVisible();
-  });
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+import SurveyForm from '../SurveyForm';
 
-  test('test first name input',async () => {
-    // const user = userEvent.setup();
+const setSubmit = jest.fn();
+const findFirstName = () => screen.getByPlaceholderText(/first name/i);
+const findLastName = () => screen.getByPlaceholderText(/last name/i);
+const findEmail = () => screen.getByPlaceholderText(/email/i);
+const findAge = () => screen.getByRole('radio', { name: 'Between 10 - 20 years old' });
+const findGender = () => screen.getByRole('radio', { name: 'Male' });
+const findShoeSize = () => screen.getByRole('button', { name: 'US M 9.5 / W 11' });
+const findShoePairs = () => screen.getByRole('radio', { name: 'Between 5 - 15 pairs' });
+const findShoeBrands = () => screen.getByRole('checkbox', { name: 'Vans' });
+const findBuyPref = () => screen.getByRole('option', { name: 'Both' });
+const findShopPref = () => screen.getByRole('checkbox', {
+  name: 'Directly from the retail brand store (ex. Nike, Addidas, Puma, Reebok etc.)',
+});
+const findMaxSpend = () => screen.getByRole('radio', { name: 'Between $200 - $400 CAD' });
+const findFavShoe = () => screen.getByPlaceholderText('Ex. Off-White Jordan 1 high UNC');
+
+describe('Test SurveyForm Input Components Rendering', () => {
+  test('First Name Input Text', () => {
     render(<SurveyForm setSubmit={setSubmit} />);
-    const firstName = screen.getByPlaceholderText(/first name/i);
+    expect(findFirstName()).toBeVisible();
+  });
+  test('Last Name Input Text', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findLastName()).toBeVisible();
+  });
+  test('Email Input', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findEmail()).toBeVisible();
+  });
+  test('Age Range Input Radio', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findAge()).toBeVisible();
+  });
+  test('Gender Input Radio', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findGender()).toBeVisible();
+  });
+  test('Shoe Size Input Button Group', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findShoeSize()).toBeVisible();
+  });
+  test('Shoe Pairs Input Radio', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findShoePairs()).toBeVisible();
+  });
+  test('Shoe Brands Input Checkbox', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findShoeBrands()).toBeVisible();
+  });
+  test('Buying Preference Input Select', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findBuyPref()).toBeVisible();
+  });
+  test('Shopping Preference Input Select', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findShopPref()).toBeVisible();
+  });
+  test('Max Spend Input Select', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findMaxSpend()).toBeVisible();
+  });
+  test('Favourite Shoe Input Checkbox', () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    expect(findFavShoe()).toBeVisible();
+  });
+});
+
+describe('Test SurveyForm inputs with values', () => {
+  const user = userEvent.setup();
+  test('First Name Input', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    const firstName = findFirstName();
     await user.type(firstName, 'john');
-    
+
     expect(firstName).toHaveValue('john');
   });
-  test('test last name input',async () => {
-    // const user = userEvent.setup();
+
+  test('Last Name Input', async () => {
     render(<SurveyForm setSubmit={setSubmit} />);
-    const lName = screen.getByPlaceholderText(/last name/i);
-    await user.type(lName, 'bob');
-    
-    expect(lName).toHaveValue('bob');
+    const lastName = findLastName();
+    await user.type(lastName, 'bob');
+
+    expect(lastName).toHaveValue('bob');
   });
-  test('test email input',async () => {
-    // const user = userEvent.setup();
+  test('Email Input', async () => {
     render(<SurveyForm setSubmit={setSubmit} />);
-    const email = screen.getByPlaceholderText(/email/i);
+    const email = findEmail();
     await user.type(email, 'test@gmail.com');
-    
+
     expect(email).toHaveValue('test@gmail.com');
   });
-  test('test age input',async () => {
-    
+  test('Age Range Input', async () => {
     render(<SurveyForm setSubmit={setSubmit} />);
-    
-    const age = await screen.getByRole('spinbutton', {name: /age/i});
-    await user.clear(age); // clear input since default is 1
-    await user.type(age, '25');
-    expect(age).toHaveValue(25);
-    
+    const age = findAge();
+    await user.click(age);
+
+    expect(age).toBeChecked();
   });
-  test('test gender input',async () => {
-    
+  test('Gender Input', async () => {
     render(<SurveyForm setSubmit={setSubmit} />);
-    
-    const male = await screen.getByRole('radio', {name: 'Male'});
-    await user.click(male);
-    
-    expect(male).toBeChecked();
-    
+    const gender = findGender();
+    await user.click(gender);
+    expect(gender).toBeChecked();
   });
-  test('test buying preference dropdown', async () => {
+  test('Shoe Size Button Input', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+    const shoeSize = findShoeSize();
+    await user.click(shoeSize);
+
+    expect(shoeSize).toHaveClass('input-btn-selected');
+  });
+  test('Pairs of Sneakers range input', async () => {
     render(<SurveyForm setSubmit={setSubmit} />);
 
-    const select = await screen.getByRole('option', {name: 'Both'})
-    await user.selectOptions(screen.getByRole('combobox'), select)
-   
-    
+    const PairsOfSneakers = findShoePairs();
+    await user.click(PairsOfSneakers);
+
+    expect(PairsOfSneakers).toBeChecked();
+  });
+  test('Favourite Brands single input', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+
+    const favBrand = findShoeBrands();
+    await user.click(favBrand);
+
+    expect(favBrand).toBeChecked();
+  });
+  test('Favourite Brands multiple inputs', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+
+    const favBrand1 = screen.getByRole('checkbox', { name: 'Vans' });
+    const favBrand2 = screen.getByRole('checkbox', { name: 'Adidas' });
+    const favBrand3 = screen.getByRole('checkbox', { name: 'Air Jordan' });
+
+    await user.click(favBrand1);
+    await user.click(favBrand2);
+    await user.click(favBrand3);
+
+    expect(favBrand1).toBeChecked();
+    expect(favBrand2).toBeChecked();
+    expect(favBrand3).toBeChecked();
+  });
+
+  test('Buying preference dropdown input', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+
+    const select = findBuyPref();
+    await user.selectOptions(screen.getByRole('combobox'), select);
+
     expect(select.selected).toBe(true);
   });
-  test('test sneaker shops checkbox with 1 input', async () => {
+
+  test('Sneaker shopping single input', async () => {
     render(<SurveyForm setSubmit={setSubmit} />);
 
-    await act(async () => {
-      const shop = await screen.getByTestId('store1');
-      screen.debug(shop)
-      await shop.click();
-      expect(shop.checked).toEqual(true)
-    })
-    
-    // await shop.click(shop);
+    const favBrand = findShoeBrands();
+    await user.click(favBrand);
 
-    // expect(shop).toHaveValue('footwear-retailer');
-    
-    
+    expect(favBrand).toBeChecked();
+  });
+  test('Sneaker Shopping multiple inputs', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
 
+    const favBrand1 = screen.getByRole('checkbox', {
+      name: 'Sneaker Boutique/Consignment Stores',
+    });
+    const favBrand2 = screen.getByRole('checkbox', {
+      name: 'Online Classifieds (ex. Kijiji, Facebook Marketplace)',
+    });
+    const favBrand3 = screen.getByRole('checkbox', {
+      name: 'Online Reselling Market (ex. Stockx, Goat, Ebay & Grailed)',
+    });
 
+    await user.click(favBrand1);
+    await user.click(favBrand2);
+    await user.click(favBrand3);
 
+    expect(favBrand1).toBeChecked();
+    expect(favBrand2).toBeChecked();
+    expect(favBrand3).toBeChecked();
+  });
+  test('Max Spend per shoe input', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
 
-  })
-  // test('test render shoe size button group', async () => {
-  //   // const thing = await screen.getAllByRole('button', {name: "shoeSize"})
-  //   // screen.debug(thing);
-  //   // render(
-  //   //   <Formik>
-  //   //     <Form>
-  //   //       <BrandCheckboxGroup />
-  //   //     </Form>
-  //   //   </Formik>
-  //   // )
-   
-  //   // console.log( screen.findByRole("button", {name: "shoeSize"}))
-  //   // expect(screen.queryByTestId('shoe-sizes')).toBeVisible();
-  // });
-  // test("Rendering component", async () => {
-  //   const setSubmit = jest.fn()
-  //   const user = userEvent.setup();
-  //   const submitForm = jest.fn();
-  //   render(<SurveyForm setSubmit={setSubmit} />);
-    
-  //   // const submitForm = jest.spyOn(SurveyForm.submitForm, 'submitform')
-  //   await user.type(screen.getByText(/first name/i), "John");
-  //   await user.type(screen.getByText(/last name/i), "Doe");
-  //   await user.type(screen.getByLabelText(/email/i), "fake1234@gmail.com");
-  //   await user.click(screen.getByLabelText('Male'));
-  //   await user.click(screen.getByText(/US M 3.5/i));
-  //   await user.click(screen.getByText('Vans'));
-  //   await user.click(screen.getByText('Online'));
-  //   await user.click(screen.getByText(/footwear/i));
-  //   await user.click(screen.getByText(/submit/i));
-    
-  //   await waitFor(() => 
-  //     expect(submitForm).toHaveBeenCalledTimes(1)
-  //     // expect(setSubmit).toHaveBeenCalledWith({
-  //     //   firstName: "John",
-  //     //   lastName: "Doe",
-  //     //   email: "fake1234@gmail.com",
-  //     //   gender: "MALE",
-  //     //   favouriteBrands: 'Vans',
+    const maxSpent = findMaxSpend();
+    await user.click(maxSpent);
 
-  //     // })
-//   // const tree = render(
-//     <Router> https://stackoverflow.com/questions/67653566/react-jest-testing-testinglibraryelementerror-unable-to-find-an-element
-//     <MovieCard title="Batman" image="imagesrc"/>
-//   </Router>
-// )
-  //   )
-  // });
+    expect(maxSpent).toBeChecked();
+  });
+  test('Favourite Sneaker Input', async () => {
+    render(<SurveyForm setSubmit={setSubmit} />);
+
+    const favSneaker = findFavShoe();
+    await user.type(favSneaker, 'Jordan 4 Bred');
+
+    expect(favSneaker).toHaveValue('Jordan 4 Bred');
+  });
 });
+describe('test form submission', () => {
+  test('Rendering component', async () => {
+    const user = userEvent.setup();
+
+    render(<SurveyForm setSubmit={setSubmit} />);
+
+    await user.type(screen.getByPlaceholderText(/first name/i), 'john');
+    await user.type(screen.getByPlaceholderText(/last name/i), 'bob');
+    await user.type(screen.getByPlaceholderText(/email/i), 'test@gmail.com');
+    await user.click(
+      screen.getByRole('radio', { name: 'Between 10 - 20 years old' }),
+    );
+    await user.click(screen.getByRole('radio', { name: 'Male' }));
+    await user.click(screen.getByRole('button', { name: 'US M 9.5 / W 11' }));
+    await user.click(
+      screen.getByRole('radio', { name: 'Between 5 - 15 pairs' }),
+    );
+    await user.click(screen.getByRole('checkbox', { name: 'Vans' }));
+    await user.selectOptions(
+      screen.getByRole('combobox'),
+      screen.getByRole('option', { name: 'Both' }),
+    );
+    await user.click(
+      screen.getByRole('checkbox', {
+        name: 'Directly from the retail brand store (ex. Nike, Addidas, Puma, Reebok etc.)',
+      }),
+    );
+    await user.click(
+      screen.getByRole('radio', { name: 'Between $200 - $400 CAD' }),
+    );
+    await user.type(
+      screen.getByPlaceholderText('Ex. Off-White Jordan 1 high UNC'),
+      'Jordan 4 Bred',
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(setSubmit).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+// helpers to get inputs from SurveyForm component
+// const findFirstName = () => screen.getByPlaceholderText(/first name/i);
+// const findLastName = () => screen.getByPlaceholderText(/last name/i);
+// const findEmail = () => screen.getByPlaceholderText(/email/i);
+// const findAge = () => screen.getByRole('radio', { name: 'Between 10 - 20 years old' });
+// const findGender = () => screen.getByRole('radio', { name: 'Male' });
+// const findShoeSize = () => screen.getByRole('button', { name: 'US M 9.5 / W 11' });
+// const findShoePairs = () => screen.getByRole('radio', { name: 'Between 5 - 15 pairs' });
+// const findShoeBrands = () => screen.getByRole('checkbox', { name: 'Vans' });
+// const findBuyPref = () => screen.getByRole('option', { name: 'Both' });
+// const findShopPref = () => screen.getByRole('checkbox', {
+//   name: 'Directly from the retail brand store (ex. Nike, Addidas, Puma, Reebok etc.)',
+// });
+// const findMaxSpend = () => screen.getByRole('radio', { name: 'Between $200 - $400 CAD' });
+// const findFavShoe = () => screen.getByPlaceholderText('Ex. Off-White Jordan 1 high UNC');

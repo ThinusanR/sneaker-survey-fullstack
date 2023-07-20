@@ -1,21 +1,23 @@
-import { Doughnut } from "react-chartjs-2";
+/* eslint-disable react/prop-types */
+import { Doughnut } from 'react-chartjs-2';
 
-function BuyingDoughnutChart({filteredData}){
-  
-  const buyingPrefCount = [...filteredData].reduce((data, val)=> {
-    data[val.buyingPreference
-    ] = (data[val.buyingPreference
-    ] || 0) + 1;
+function BuyingDoughnutChart({ filteredData }) {
+  const buyingPrefCount = [...filteredData].reduce((data, val) => {
+    data[val.buyingPreference] = (data[val.buyingPreference] || 0) + 1;
 
     return data;
-  }, {})
-  console.log("pairs-", buyingPrefCount)
-  let config = {
-    labels: ['Online','In-Store','Both'],
-    datasets:[
+  }, {});
+  console.log('pairs-', buyingPrefCount);
+  const config = {
+    labels: ['Online', 'In-Store', 'Both'],
+    datasets: [
       {
         label: '# of Participants',
-        data: [buyingPrefCount.ONLINE, buyingPrefCount.INSTORE, buyingPrefCount.BOTH],
+        data: [
+          buyingPrefCount.ONLINE,
+          buyingPrefCount.INSTORE,
+          buyingPrefCount.BOTH,
+        ],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -33,18 +35,16 @@ function BuyingDoughnutChart({filteredData}){
           'rgba(255, 159, 64, 1)',
         ],
         borderWidth: 1,
-  
-      }
-    ]
-   }
+      },
+    ],
+  };
 
   return (
     <div className="chart-container">
       <p className="description">Buying Preference</p>
       <Doughnut data={config} />
     </div>
-  )
-
+  );
 }
 
 export default BuyingDoughnutChart;

@@ -1,24 +1,29 @@
-import { Doughnut } from "react-chartjs-2";
-function ShoppingDoughnutChart({filteredData}){
-  let counts = {}
-  const shoppingStores = [...filteredData].map(survey => survey.shoppingPreference)
-  for(const array of shoppingStores ){
-    for(const j of array){
-      counts[j] = (counts[j] || 0 ) + 1
+/* eslint-disable react/prop-types */
+/* eslint-disable no-restricted-syntax */
+import { Doughnut } from 'react-chartjs-2';
+
+function ShoppingDoughnutChart({ filteredData }) {
+  const counts = {};
+  const shoppingStores = [...filteredData].map(
+    (survey) => survey.shoppingPreference,
+  );
+  for (const array of shoppingStores) {
+    for (const j of array) {
+      counts[j] = (counts[j] || 0) + 1;
     }
   }
-  console.log("shop", shoppingStores)
-  console.log("countsss", counts)
-  let config = {
+  console.log('shop', shoppingStores);
+  console.log('countsss', counts);
+  const config = {
     labels: [
       'Online Reselling Market (ex. Stockx, Goat, Ebay & Grailed)',
       'Directly from the retail brand store (ex. Nike, Addidas, Puma, Reebok etc.)',
       'Footwear Retailer (ex. Footlocker, Sportchek & Champs)',
       'Online Classifieds (ex. Kijiji, Facebook Marketplace, Craiglist)',
       'Sneaker Boutique/Consignment Stores (ex. Capsule, NRML, Livestock)',
-      'Sneaker events(ex. sneaker conventions, swaps, tradeshows etc)'
+      'Sneaker events(ex. sneaker conventions, swaps, tradeshows etc)',
     ],
-    datasets:[
+    datasets: [
       {
         label: '# of Particpants',
         data: [
@@ -28,7 +33,6 @@ function ShoppingDoughnutChart({filteredData}){
           counts['online-classifieds'] || 0,
           counts['boutique-consignment'] || 0,
           counts['sneaker-event'] || 0,
-
         ],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -47,15 +51,14 @@ function ShoppingDoughnutChart({filteredData}){
           'rgba(255, 159, 64, 1)',
         ],
         borderWidth: 1,
-  
-      }
-    ]
-   }
+      },
+    ],
+  };
   return (
     <div className="chart-container">
       <p className="description">Shopping Preference</p>
-      <Doughnut data={config}/>
+      <Doughnut data={config} />
     </div>
-  )
+  );
 }
 export default ShoppingDoughnutChart;

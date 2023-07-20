@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-describe('testing', () => {
-  test('renders ', () => {
+describe('App.js Test', () => {
+  test('Renders Sneaker survey app ', () => {
     render(<App />);
-    const linkElement = screen.getByPlaceholderText('Enter your first name');
+    const linkElement = screen.getByText('Sneaker Survey');
     expect(linkElement).toBeInTheDocument();
   });
 });
