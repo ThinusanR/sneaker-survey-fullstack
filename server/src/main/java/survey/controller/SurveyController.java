@@ -55,7 +55,7 @@ public class SurveyController {
       if(list == null){
         return new ResponseEntity<>(null,HttpStatus.NO_CONTENT);
       }
-
+     
      return new ResponseEntity<>(list, HttpStatus.OK);
     }
     catch (Exception e){

@@ -12,8 +12,7 @@ function ShoppingDoughnutChart({ filteredData }) {
       counts[j] = (counts[j] || 0) + 1;
     }
   }
-  console.log('shop', shoppingStores);
-  console.log('countsss', counts);
+
   const config = {
     labels: [
       'Online Reselling Market (ex. Stockx, Goat, Ebay & Grailed)',

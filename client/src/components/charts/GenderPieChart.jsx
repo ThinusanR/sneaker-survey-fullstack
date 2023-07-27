@@ -5,12 +5,11 @@ import { Pie } from 'react-chartjs-2';
 // ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale);
 
 function GenderPieChart({ filteredData }) {
-  // console.log("yeeeee",[...filteredData].map(item => item.gender));
   const nameCount = [...filteredData].reduce((acc, val) => {
     acc[val.gender] = (acc[val.gender] || 0) + 1;
     return acc;
   }, {});
-  // console.log("count",nameCount)
+
   const config = {
     labels: ['Male', 'Female', 'Other'],
     datasets: [

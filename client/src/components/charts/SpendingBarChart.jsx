@@ -3,36 +3,11 @@
 import { Bar } from 'react-chartjs-2';
 
 function SpendingBarChart({ filteredData }) {
-  const payLabel = {
-    payRange1: 'Under $100 CAD',
-    payRange2: 'Between $100 - $200 CAD',
-    payRange3: 'Between $200 - $400 CAD',
-    payRange4: 'Between $400 - $600 CAD',
-    payRange5: 'Between $600 - $800 CAD',
-    payRange6: 'Over $800+ CAD',
-  };
-  //   payRange1
-  //   payRange2
-  //   payRange3
-  //   payRange4
-  //   payRange5
-  //   payRange6
-
-  //   maxPay
-  // update all mongo with mayPay property
-
-  console.log('hello----', filteredData);
-
-  let spendingCount = [...filteredData].map((item) => (
-    item.maxPay ? (item.maxPay = payLabel[item.maxPay]) : null));
-  spendingCount = [...filteredData].reduce((data, val) => {
-    // data.maxPay = payLabel[data.maxPay];
+  const spendingCount = [...filteredData].reduce((data, val) => {
     data[val.maxPay] = (data[val.maxPay] || 0) + 1;
     return data;
   }, {});
 
-  // console.log("spend",filteredData)
-  console.log('spendCount', spendingCount);
   const config = {
     labels: [
       'Under $100 CAD',

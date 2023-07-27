@@ -58,19 +58,18 @@ function SurveyForm({ setSubmit }) {
 
   const submitForm = async (values) => {
     values.createdAt = new Date().toLocaleString();
-    // console.log(values)
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(values, null, 2),
     };
-    // console.log(values);
+
     fetch('http://localhost:8080/api/v1/surveys/', requestOptions)
       .then((response) => {
         if (response.ok && response.status === 201) {
           setSubmit(true);
         }
-        // console.log(response);
       })
       .catch(console.error);
     setSubmit(true);

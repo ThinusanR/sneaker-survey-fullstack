@@ -38,7 +38,7 @@ function SizeBarChart({ filteredData }) {
     'US M 14.5 / W 16',
     'US M 15 / W 16.5',
   ];
-  // console.log("size", sizeCount);
+
   const config = {
     labels,
     datasets: [

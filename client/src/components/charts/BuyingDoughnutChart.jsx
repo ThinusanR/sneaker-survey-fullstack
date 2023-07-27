@@ -7,7 +7,7 @@ function BuyingDoughnutChart({ filteredData }) {
 
     return data;
   }, {});
-  console.log('pairs-', buyingPrefCount);
+
   const config = {
     labels: ['Online', 'In-Store', 'Both'],
     datasets: [

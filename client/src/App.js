@@ -8,28 +8,28 @@ import './App.css';
 function App() {
   const [didSubmit, setSubmit] = useState(false); // false
   const [viewResults, setViewResults] = useState(false);
-  const [surveyData, setData] = useState('');
+  const [surveyData, setData] = useState([]);
+
   Chart.register(...registerables);
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-      headers: { 'Content-type': 'application/json' },
+    const fetchData = async () => {
+      try {
+        const requestOptions = {
+          method: 'GET',
+          headers: { 'Content-type': 'application/json' },
+        };
+        const response = await fetch('http://localhost:8080/api/v1/surveys/data', requestOptions);
+        if (!response.ok || response.status !== 200) {
+          throw new Error('Unable to fetch survey data');
+        }
+        const result = await response.json();
+
+        setData(result);
+      } catch (err) {
+        console.error('API Fetch Error:', err);
+      }
     };
-    fetch('http://localhost:8080/api/v1/surveys/data', requestOptions)
-      // eslint-disable-next-line consistent-return
-      .then((response) => {
-        if (response.ok && response.status === 200) {
-          // setData(response);
-          return response.json();
-        }
-      })
-      .then((result) => {
-        console.log('1--', result);
-        if (!surveyData) {
-          setData(result);
-        }
-      })
-      .catch(console.error);
+    fetchData();
   }, []);
 
   return (

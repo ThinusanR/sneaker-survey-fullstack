@@ -5,28 +5,12 @@ import { Bar } from 'react-chartjs-2';
 // ChartJS.register(ArcElement, Tooltip, Legend);
 
 function ShoePairsBarChart({ filteredData }) {
-  console.log('data', filteredData);
-  const labels = {
-    numShoeRange1: 'Under 5 pairs',
-    numShoeRange2: 'Between 5 - 15 pairs',
-    numShoeRange3: 'Between 15 - 25 pairs',
-    numShoeRange4: 'Between 25 - 35 pairs',
-    numShoeRange5: 'Between 35 - 50 pairs',
-    numShoeRange6: 'over 50+ pairs',
-  };
-  let pairsCount = [...filteredData].map((data) => (data.numOfShoes
-    ? (data.numOfShoes = labels[data.numOfShoes])
-    : (data.numOfShoes = 'Under 5 pairs')));
-  console.log('pairs-', pairsCount);
-
-  pairsCount = [...filteredData].reduce((data, val) => {
+  const pairsCount = [...filteredData].reduce((data, val) => {
     data[val.numOfShoes] = (data[val.numOfShoes] || 0) + 1;
 
     return data;
   }, {});
 
-  // return ();
-  console.log('pairs--', pairsCount);
   const config = {
     labels: [
       'Under 5 pairs',
@@ -84,12 +68,3 @@ function ShoePairsBarChart({ filteredData }) {
 }
 
 export default ShoePairsBarChart;
-
-// numOfShoes
-
-// numShoeRange1
-// numShoeRange2
-// numShoeRange3
-// numShoeRange4
-// numShoeRange5
-// numShoeRange6

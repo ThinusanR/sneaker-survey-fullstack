@@ -31,15 +31,13 @@ function ShoeSizeBtnGroup() {
     'US M 14.5 / W 16',
     'US M 15 / W 16.5',
   ];
-  // const [shoeSize, setSize] = useState('');
-  // console.log(shoeSize);
+
   const formikProps = useFormikContext();
   return (
     <div className="input-group" data-testid="shoe-sizes">
       <p>what is your Shoe Size?</p>
       <ErrorMessage name="shoeSize" render={() => <div>Please select a shoe size </div>} />
       <Field
-        // name="shoeSize"
         as="ul"
         id="btn-group"
       >
@@ -62,7 +60,5 @@ function ShoeSizeBtnGroup() {
     </div>
   );
 }
-// ShoeSizeBtnGroup.propTypes = {
-//   setSize: PropTypes.func.isRequired,
-// };
+
 export default ShoeSizeBtnGroup;

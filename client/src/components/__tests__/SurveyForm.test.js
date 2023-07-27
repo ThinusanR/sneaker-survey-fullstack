@@ -243,18 +243,3 @@ describe('test form submission', () => {
     });
   });
 });
-// helpers to get inputs from SurveyForm component
-// const findFirstName = () => screen.getByPlaceholderText(/first name/i);
-// const findLastName = () => screen.getByPlaceholderText(/last name/i);
-// const findEmail = () => screen.getByPlaceholderText(/email/i);
-// const findAge = () => screen.getByRole('radio', { name: 'Between 10 - 20 years old' });
-// const findGender = () => screen.getByRole('radio', { name: 'Male' });
-// const findShoeSize = () => screen.getByRole('button', { name: 'US M 9.5 / W 11' });
-// const findShoePairs = () => screen.getByRole('radio', { name: 'Between 5 - 15 pairs' });
-// const findShoeBrands = () => screen.getByRole('checkbox', { name: 'Vans' });
-// const findBuyPref = () => screen.getByRole('option', { name: 'Both' });
-// const findShopPref = () => screen.getByRole('checkbox', {
-//   name: 'Directly from the retail brand store (ex. Nike, Addidas, Puma, Reebok etc.)',
-// });
-// const findMaxSpend = () => screen.getByRole('radio', { name: 'Between $200 - $400 CAD' });
-// const findFavShoe = () => screen.getByPlaceholderText('Ex. Off-White Jordan 1 high UNC');

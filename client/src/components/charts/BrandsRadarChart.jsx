@@ -22,12 +22,7 @@ function BrandsRadarChart({ filteredData }) {
       counts[j] = (counts[j] || 0) + 1;
     }
   }
-  console.log('brands', favBrands);
-  console.log(counts, 'cou');
-  console.log(
-    'counts',
-    labels.map((label) => counts[label]),
-  );
+
   const config = {
     labels,
     datasets: [

@@ -17,7 +17,6 @@ function AgePolarAreaChart({ filteredData }) {
     return data;
   }, {});
 
-  console.log('age', ageCount);
   const config = {
     labels: Object.values(labels),
     datasets: [
