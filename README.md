@@ -1,78 +1,82 @@
-## 👟 Welcome to the sneaker survey 
-## 📖 Description
+# 👟 Welcome to the Sneaker Survey 
+## 📖 Prerequisites
+In order to run this project, the following software binaries need to be installed on your development machines:
+- `java>=18.0.2`
+- `docker>=20.10.24`
+- `npm>=9.5.0`
+
 ## 🖥️ Local development
-### 🗄️ Setting Up A MongoDB Cloud Atlas 
+## 🗄️ Setting Up A MongoDB Cloud Atlas 
+This project utilizes MongoDB Cloud Atlas as the database. To setup the database instance, follow these steps:
+1. Register for a MongoDB Cloud Account and setup a MongoDb Cluster by following this [Tutorial](https://www.mongodb.com/basics/mongodb-atlas-tutorial).
 
+2. Create a `/resources` folder inside `/server/src/main/`, the according folder structure should be: `/server/src/main/resources/`.
 
-# Getting Started with Create React App
+3. Create a `application.properties` file inside the newly created `/resources`, this file will contain the credentials to connect to your MongoDb Atlas cluster.    
+Inside the `aplication.properties` file add the following properties along with your MongoDB Atlas cluster credentials:
+    ```
+    spring.data.mongodb.uri=your_mongodb_connection_string
+    spring.data.mongodb.database=your_mongodb_database_name
+    spring.data.mongodb.port=27017
+    spring.data.mongodb.authentication-database = admin
+    ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🛠️ Installation
+### 💪Manual
+To setup and run this project manually without Docker, follow these steps:
+#### Frontend
+1. Within the `./client` folder, install the front-end dependencies by running the terminal command: 
+    ``` 
+    npm install 
+    ``` 
 
-## Available Scripts
+2. After dependencies have been installed, start the front-end with the following terminal command: 
+    ```
+    npm run start
+    ```
+3. Open [http://localhost:3000](http://localhost:3000) to view the front-end in your browser.
 
-In the project directory, you can run:
+#### Backend
+1. Within the `./server` folder, compile and launch the server with the following terminal command: 
+    ```
+    ./mvnw spring-boot:run
+    ```
 
-## `./mvnw spring-boot:run`
+### 📦 Docker builds
+#### Docker Compose
+1. At the root directory run: 
+    ```
+    docker compose up
+    ```
+2. Open [http://localhost:3000](http://localhost:3000) to view the project in your browser.
 
-### `npm start`
+#### Docker
+##### Frontend
+1. Within the `./client` folder, build the Docker image: 
+    ```
+    docker build -t sneaker_survey_front . 
+    ```
+2. Run Docker container:
+    ```
+    docker run -p 3000:3000 sneaker_survey_front 
+    ```
+##### Backend
+1. Within the `./server` folder, build the Docker image: 
+    ```
+    docker build -t sneaker_survey_back . 
+    ```
+2. Run Docker container:
+    ```
+    docker run -p 8080:8080 sneaker_survey_back
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🧪 Test
+Run tests with:
+```
+npm run test
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clear test cache with:
+```
+npm run clear_jest
+```
