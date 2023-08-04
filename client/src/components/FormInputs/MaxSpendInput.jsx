@@ -17,7 +17,6 @@ function MaxSpendInput() {
               name="maxPay"
               id="payRange1"
               value="payRange1"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -29,7 +28,6 @@ function MaxSpendInput() {
               name="maxPay"
               id="payRange2"
               value="payRange2"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -41,7 +39,6 @@ function MaxSpendInput() {
               name="maxPay"
               id="payRange3"
               value="payRange3"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -55,7 +52,6 @@ function MaxSpendInput() {
               name="maxPay"
               id="payRange4"
               value="payRange4"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -67,7 +63,6 @@ function MaxSpendInput() {
               name="maxPay"
               id="payRange5"
               value="payRange5"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -79,7 +74,6 @@ function MaxSpendInput() {
               name="maxPay"
               id="payRange6"
               value="payRange6"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />

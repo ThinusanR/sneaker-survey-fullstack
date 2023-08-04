@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-// import { Chart as ChartJS, ArcElement, Tooltip, Legend, LinearScale } from "chart.js";
-import { Bar } from 'react-chartjs-2';
 
-// ChartJS.register(ArcElement, Tooltip, Legend, LinearScale);
+import { Bar } from 'react-chartjs-2';
 
 function SizeBarChart({ filteredData }) {
   const sizeCount = [...filteredData].reduce((data, val) => {
@@ -10,7 +8,6 @@ function SizeBarChart({ filteredData }) {
 
     return data;
   }, {});
-  // const nameCount = arr.reduce((a, v) => (v.shoesize === val ? a + 1 : a), 0);
 
   const labels = [
     'US M 3.5 / W 5',

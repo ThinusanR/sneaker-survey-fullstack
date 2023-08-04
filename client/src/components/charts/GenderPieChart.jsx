@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-// import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale } from "chart.js";
 import { Pie } from 'react-chartjs-2';
-
-// ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale);
 
 function GenderPieChart({ filteredData }) {
   const nameCount = [...filteredData].reduce((acc, val) => {

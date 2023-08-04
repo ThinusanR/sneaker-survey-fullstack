@@ -12,7 +12,6 @@ function SneakerPairInput() {
               name="numOfShoes"
               id="numShoeRange1"
               value="numShoeRange1"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -24,7 +23,6 @@ function SneakerPairInput() {
               name="numOfShoes"
               id="numShoeRange2"
               value="numShoeRange2"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -36,7 +34,6 @@ function SneakerPairInput() {
               name="numOfShoes"
               id="numShoeRange3"
               value="numShoeRange3"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -50,7 +47,6 @@ function SneakerPairInput() {
               name="numOfShoes"
               id="numShoeRange4"
               value="numShoeRange4"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -62,7 +58,6 @@ function SneakerPairInput() {
               name="numOfShoes"
               id="numShoeRange5"
               value="numShoeRange5"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -74,7 +69,6 @@ function SneakerPairInput() {
               name="numOfShoes"
               id="numShoeRange6"
               value="numShoeRange6"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />

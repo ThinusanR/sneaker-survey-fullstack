@@ -43,15 +43,6 @@ function BrandsRadarChart({ filteredData }) {
         borderWidth: 1,
       },
     ],
-    // options: {
-    //   scale: {
-
-    //     angleLines: {
-    //       color: 'rgb(54, 162, 235)',
-    //     },
-
-    //   },
-    // },
   };
   const options = {
     scales: {

@@ -12,7 +12,6 @@ function AgeRangeInput() {
               name="age"
               id="ageRange1"
               value="ageRange1"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -24,7 +23,6 @@ function AgeRangeInput() {
               name="age"
               id="ageRange2"
               value="ageRange2"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -36,7 +34,6 @@ function AgeRangeInput() {
               name="age"
               id="ageRange3"
               value="ageRange3"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -50,7 +47,6 @@ function AgeRangeInput() {
               name="age"
               id="ageRange4"
               value="ageRange4"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -62,7 +58,6 @@ function AgeRangeInput() {
               name="age"
               id="ageRange5"
               value="ageRange5"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />
@@ -74,7 +69,6 @@ function AgeRangeInput() {
               name="age"
               id="ageRange6"
               value="ageRange6"
-              // onChange={(event) => setGender(event.target.value)}
               required
               className="input-radio"
             />

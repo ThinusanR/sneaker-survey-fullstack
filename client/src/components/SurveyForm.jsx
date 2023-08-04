@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import {
@@ -120,8 +119,6 @@ function SurveyForm({ setSubmit }) {
                 type="email"
                 name="email"
                 id="email"
-                // value={emailInput}
-                // onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter you Email"
                 className="input-text"
                 required
@@ -141,7 +138,6 @@ function SurveyForm({ setSubmit }) {
                   name="gender"
                   id="male"
                   value="MALE"
-                  // onChange={(event) => setGender(event.target.value)}
                   required
                   className="input-radio"
                 />
@@ -153,7 +149,6 @@ function SurveyForm({ setSubmit }) {
                   name="gender"
                   id="female"
                   value="FEMALE"
-                  // onChange={(event) => setGender(event.target.value)}
                   required
                   className="input-radio"
                 />
@@ -165,7 +160,6 @@ function SurveyForm({ setSubmit }) {
                   name="gender"
                   id="other"
                   value="OTHER"
-                  // onChange={(event) => setGender(event.target.value)}
                   required
                   className="input-radio"
                 />
