@@ -11,7 +11,7 @@ import {
   ShoeSizeBtnGroup,
   ShoppingCheckboxGroup,
   MaxSpendInput,
-} from './formInputs';
+} from './FormInputs';
 
 function SurveyForm({ setSubmit }) {
   const valdiationSchema = Yup.object({
